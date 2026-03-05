@@ -1,0 +1,40 @@
+{
+  "name": "qa-automation-prompts",
+  "version": "1.0.0",
+  "description": "Prompt management system for Figma → X-ray Test Cases → Playwright pipeline",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf test-results && rimraf playwright-report",
+    "test": "playwright test",
+    "test:ui": "playwright test tests/ui",
+    "test:api": "playwright test tests/api",
+    "test:db": "playwright test tests/db",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "build": "node scripts/build.js",
+    "build:xray": "node scripts/build.js figma-to-xray",
+    "build:story": "node scripts/build.js jira-story-to-xray",
+    "build:playwright": "node scripts/build.js figma-to-playwright",
+    "check": "node scripts/build.js --check"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.1",
+    "js-yaml": "^4.1.1",
+    "rimraf": "^6.1.3",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
